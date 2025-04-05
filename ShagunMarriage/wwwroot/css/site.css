@@ -11,12 +11,80 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+/* wwwroot/css/site.css */
 
 body {
-  margin-bottom: 60px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
+
+header {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+}
+
+.container {
+    flex: 1;
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+}
+
+.login-form .form-group {
+    margin-bottom: 15px;
+}
+
+.login-form .form-label {
+    font-weight: bold;
+}
+
+.login-form .form-control {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }

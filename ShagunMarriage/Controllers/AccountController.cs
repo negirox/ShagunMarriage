@@ -7,9 +7,9 @@ namespace ShagunMarriage.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public AccountController(UserService userService)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
         }

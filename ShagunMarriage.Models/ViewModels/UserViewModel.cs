@@ -1,10 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ShagunMarriage.Models.ViewModels
 {
-    public class UserViewModel
+    public class UserViewModel : LoginViewModel
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        public required string Email { get; set; }
+
     }
 }

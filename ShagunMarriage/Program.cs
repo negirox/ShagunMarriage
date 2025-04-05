@@ -65,7 +65,7 @@ public class Program
                        endpoints.MapRazorPages();
                        endpoints.MapControllerRoute(
                        name: "default",
-                       pattern: "{controller=UserLogin}/{action=Login}/{id?}");
+                       pattern: "{controller=Account}/{action=Register}/{id?}");
 
                    });
                });

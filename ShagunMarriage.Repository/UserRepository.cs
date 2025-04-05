@@ -1,4 +1,3 @@
-using ShagunMarriage.Models;
 using Microsoft.EntityFrameworkCore;
 using ShagunMarriage.Models.DBModels;
 
