@@ -1,4 +1,5 @@
 ﻿
+using ShagunMarriage.Models.DBModels;
 using ShagunMarriage.Models.ViewModels;
 
 namespace ShagunMarriage.Services
@@ -7,5 +8,7 @@ namespace ShagunMarriage.Services
     {
         Task RegisterUserAsync(UserViewModel user);
         Task<UserViewModel?> AuthenticateUserAsync(string username,string password);
+
+        Task<UserViewModel?> GetUserInfo(UserModel user);
     }
 }

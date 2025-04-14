@@ -3,6 +3,7 @@ using ShagunMarriage.Models;
 using ShagunMarriage.Models.DBModels;
 using ShagunMarriage.Models.ViewModels;
 using ShagunMarriage.Repository;
+using ShagunMarriage.Utils;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace ShagunMarriage.Services
 
         public async Task RegisterUserAsync(UserViewModel user)
         {
-            var passwordHash = HashPassword(user.PasswordHash);
+            var passwordHash = user.PasswordHash.HashPassword();
             var userModel = _mapper.Map<UserModel>(user);
             await _userRepository.AddUserAsync(userModel);
         }
@@ -37,17 +38,21 @@ namespace ShagunMarriage.Services
             return null;
         }
 
-        private string HashPassword(string password)
+        private static bool VerifyPassword(string password, string passwordHash)
         {
-            using var sha256 = SHA256.Create();
-            var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
+            var hash = password.HashPassword();
+            return hash == passwordHash;
         }
 
-        private bool VerifyPassword(string password, string passwordHash)
+        public async Task<UserViewModel?> GetUserInfo(UserModel user)
         {
-            var hash = HashPassword(password);
-            return hash == passwordHash;
+            user.PasswordHash = user.PasswordHash.HashPassword();
+            var userModel = await _userRepository.GetUserInfo(user);
+            if (user != null)
+            {
+                return _mapper.Map<UserViewModel>(userModel);
+            }
+            return null;
         }
     }
 }
