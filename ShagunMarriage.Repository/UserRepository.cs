@@ -22,5 +22,11 @@ namespace ShagunMarriage.Repository
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
+
+        public async Task<UserModel?> GetUserInfo(UserModel user)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => (u.Username == user.Username || u.Email == user.Email)
+            && u.PasswordHash == user.PasswordHash);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShagunMarriage", "ShagunMarriage\ShagunMarriage.csproj", "{E8DC46EC-0B3A-4629-8035-AAC0EAD8F0AD}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShagunMarriage.Services", "ShagunMarriage.Services\ShagunMarriage.Services.csproj", "{FAA5CDD4-FD8C-4598-8046-3704C247A042}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShagunMarriage.Repository", "ShagunMarriage.Repository\ShagunMarriage.Repository.csproj", "{7E0E458E-91F6-49E3-878E-4A940CCF011C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShagunMarriage.Utils", "ShagunMarriage.Utils\ShagunMarriage.Utils.csproj", "{244DD6EB-D17C-4151-B467-5CDCA282AF69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7E0E458E-91F6-49E3-878E-4A940CCF011C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E0E458E-91F6-49E3-878E-4A940CCF011C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E0E458E-91F6-49E3-878E-4A940CCF011C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244DD6EB-D17C-4151-B467-5CDCA282AF69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244DD6EB-D17C-4151-B467-5CDCA282AF69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244DD6EB-D17C-4151-B467-5CDCA282AF69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244DD6EB-D17C-4151-B467-5CDCA282AF69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
