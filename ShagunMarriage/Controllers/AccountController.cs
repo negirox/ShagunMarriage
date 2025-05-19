@@ -42,6 +42,13 @@ namespace ShagunMarriage.Controllers
         {
             if (ModelState.IsValid)
             {
+                UserViewModel userViewModel = new()
+                {
+                    Username = username,
+                    PasswordHash = password,
+                    Email = "placeholder@example.com" // Provide a default or placeholder value for Email
+                };
+                var user = await _userService.GetUserInfo(userViewModel);
                 // Implement login logic here
                 return RedirectToAction("Index", "Home");
             }
