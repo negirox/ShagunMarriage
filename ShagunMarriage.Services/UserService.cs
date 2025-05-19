@@ -1,12 +1,8 @@
 using AutoMapper;
-using ShagunMarriage.Models;
+using CommonUtilsNet.Utils;
 using ShagunMarriage.Models.DBModels;
 using ShagunMarriage.Models.ViewModels;
 using ShagunMarriage.Repository;
-using ShagunMarriage.Utils;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShagunMarriage.Services
 {
@@ -44,11 +40,12 @@ namespace ShagunMarriage.Services
             return hash == passwordHash;
         }
 
-        public async Task<UserViewModel?> GetUserInfo(UserModel user)
+        public async Task<UserViewModel?> GetUserInfo(UserViewModel userViewModel)
         {
-            user.PasswordHash = user.PasswordHash.HashPassword();
+            userViewModel.PasswordHash = userViewModel.PasswordHash.HashPassword();
+            var user = _mapper.Map<UserModel>(userViewModel);
             var userModel = await _userRepository.GetUserInfo(user);
-            if (user != null)
+            if (userModel != null)
             {
                 return _mapper.Map<UserViewModel>(userModel);
             }

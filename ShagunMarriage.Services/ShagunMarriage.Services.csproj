@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShagunMarriage.Repository\ShagunMarriage.Repository.csproj" />
-    <ProjectReference Include="..\ShagunMarriage.Utils\ShagunMarriage.Utils.csproj" />
   </ItemGroup>
 
 </Project>

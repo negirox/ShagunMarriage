@@ -10,4 +10,8 @@
     <Folder Include="DBModels\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CommonUtilsNet.Utils" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
