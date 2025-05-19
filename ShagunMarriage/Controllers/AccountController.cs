@@ -38,17 +38,11 @@ namespace ShagunMarriage.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
             {
-                UserViewModel userViewModel = new()
-                {
-                    Username = username,
-                    PasswordHash = password,
-                    Email = "placeholder@example.com" // Provide a default or placeholder value for Email
-                };
-                var user = await _userService.GetUserInfo(userViewModel);
+                var user = await _userService.AuthenticateUserAsync(loginViewModel);
                 // Implement login logic here
                 return RedirectToAction("Index", "Home");
             }

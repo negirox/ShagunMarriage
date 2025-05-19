@@ -19,15 +19,16 @@ namespace ShagunMarriage.Services
 
         public async Task RegisterUserAsync(UserViewModel user)
         {
-            var passwordHash = user.PasswordHash.HashPassword();
             var userModel = _mapper.Map<UserModel>(user);
+            var passwordHash = user.PasswordHash.HashPassword();
+            userModel.PasswordHash = passwordHash;
             await _userRepository.AddUserAsync(userModel);
         }
 
-        public async Task<UserViewModel?> AuthenticateUserAsync(string username, string password)
+        public async Task<UserViewModel?> AuthenticateUserAsync(LoginViewModel loginViewModel)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
-            if (user != null && VerifyPassword(password, user.PasswordHash))
+            var user = await _userRepository.GetUserByUsernameAsync(loginViewModel.Username);
+            if (user != null && VerifyPassword(loginViewModel.PasswordHash, user.PasswordHash))
             {
                 return _mapper.Map<UserViewModel>(user);
             }
