@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using ShagunMarriage.Models;
 using ShagunMarriage.Models.ViewModels;
 using ShagunMarriage.Services;
 
@@ -40,13 +39,34 @@ namespace ShagunMarriage.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(loginViewModel);
+
+            var user = await _userService.AuthenticateUserAsync(loginViewModel);
+            if (user != null)
             {
-                var user = await _userService.AuthenticateUserAsync(loginViewModel);
-                // Implement login logic here
+                // Set authentication cookie/session here as needed
+
+                // Store email in session for future use
+                HttpContext.Session.SetString("UserEmail", user.Email);
+                HttpContext.Session.SetString("UserName", user.Username);
+                var userModel = await _userService.GetUserInfo(user);
+                if (userModel?.MatrimonialProfile == null)
+                {
+                    // Redirect to profile completion
+                    return RedirectToAction("CompleteProfile", "Home");
+                }
+                else
+                {
+                    // Redirect to user home
+                    return RedirectToAction("UserHome", "Home");
+                }
+                // Redirect to Home/Index
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+
+            ModelState.AddModelError("", "Invalid login attempt.");
+            return View(loginViewModel);
         }
 
 

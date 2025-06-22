@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShagunMarriage.Models.ViewModels
 {
-    public class MatrimonialUserModel
+    public class MatrimonialUserViewModel
     {
         [Required(ErrorMessage = "Full Name is required")]
         [StringLength(100, ErrorMessage = "Full Name cannot be longer than 100 characters")]

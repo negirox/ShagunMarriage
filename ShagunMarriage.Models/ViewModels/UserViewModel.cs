@@ -1,3 +1,4 @@
+using ShagunMarriage.Models.DBModels;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShagunMarriage.Models.ViewModels
@@ -8,6 +9,7 @@ namespace ShagunMarriage.Models.ViewModels
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
         public required string Email { get; set; }
+        public MatrimonialUserViewModel? MatrimonialProfile { get; set; }
 
     }
 }
