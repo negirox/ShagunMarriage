@@ -1,0 +1,131 @@
+﻿@model ShagunMarriage.Models.DBModels.MatrimonialUserModel
+
+@{
+    ViewData["Title"] = "Matrimonial Profile";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Complete Your Matrimonial Profile</h2>
+    <form asp-action="SaveProfile" method="post" class="row g-3">
+        <!-- Validation summary for all errors -->
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+        <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Gender" class="form-label"></label>
+            <select asp-for="Gender" class="form-select">
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Date Of Birth</label>
+            <input asp-for="DateOfBirth" type="date" class="form-control" />
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Religion" class="form-label"></label>
+            <input asp-for="Religion" class="form-control" />
+            <span asp-validation-for="Religion" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Caste" class="form-label"></label>
+            <input asp-for="Caste" class="form-control" />
+            <span asp-validation-for="Caste" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Education" class="form-label"></label>
+            <input asp-for="Education" class="form-control" />
+            <span asp-validation-for="Education" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Occupation" class="form-label"></label>
+            <input asp-for="Occupation" class="form-control" />
+            <span asp-validation-for="Occupation" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Annual Income</label>
+            <input asp-for="AnnualIncome" type="number" step="0.01" class="form-control" />
+            <span asp-validation-for="AnnualIncome" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Country" class="form-label"></label>
+            <input asp-for="Country" class="form-control" />
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="State" class="form-label"></label>
+            <input asp-for="State" class="form-control" />
+            <span asp-validation-for="State" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="City" class="form-label"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Height In Cm</label>
+            <input asp-for="HeightInCm" type="number" class="form-control" />
+            <span asp-validation-for="HeightInCm" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="AboutMe" class="form-label"></label>
+            <textarea asp-for="AboutMe" class="form-control" rows="2"></textarea>
+            <span asp-validation-for="AboutMe" class="text-danger"></span>
+        </div>
+
+        <hr class="mt-4" />
+        <h4 class="mb-3">Matchmaking Preferences</h4>
+        <div class="col-md-6">
+            <label class="form-label">Preferred Religion</label>
+            <input asp-for="PreferredReligion" class="form-control" />
+            <span asp-validation-for="PreferredReligion" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Preferred Caste</label>
+            <input asp-for="PreferredCaste" class="form-control" />
+            <span asp-validation-for="PreferredCaste" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Preferred Age From</label>
+            <input asp-for="PreferredAgeFrom" type="number" class="form-control" />
+            <span asp-validation-for="PreferredAgeFrom" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Preferred Age To</label>
+            <input asp-for="PreferredAgeTo" type="number" class="form-control" />
+            <span asp-validation-for="PreferredAgeTo" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Preferred Height From</label>
+            <input asp-for="PreferredHeightFrom" type="number" class="form-control" />
+            <span asp-validation-for="PreferredHeightFrom" class="text-danger"></span>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Preferred Height To</label>
+            <input asp-for="PreferredHeightTo" type="number" class="form-control" />
+            <span asp-validation-for="PreferredHeightTo" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <label class="form-label">Additional Preferences</label>
+            <textarea asp-for="AdditionalPreferences" class="form-control" rows="2"></textarea>
+            <span asp-validation-for="AdditionalPreferences" class="text-danger"></span>
+        </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary mt-3">Save Profile</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
