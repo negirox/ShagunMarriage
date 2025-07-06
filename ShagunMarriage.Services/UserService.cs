@@ -62,5 +62,19 @@ namespace ShagunMarriage.Services
             }
             return null;
         }
+
+        public async Task<bool> AddOrUpdate(MatrimonialUserViewModel userProfile,string email)
+        {
+            var matrimonialUserModel = _mapper.Map<MatrimonialUserModel>(userProfile);
+            var userInfo = await _userRepository.GetUserByEmailAsync(email);
+            if (userInfo == null)
+            {
+                return false;
+            }
+            matrimonialUserModel.UserId = userInfo.Id;
+            matrimonialUserModel.User = userInfo;
+            await _userRepository.AddOrUpdate(matrimonialUserModel,email);
+            return true;
+        }
     }
 }

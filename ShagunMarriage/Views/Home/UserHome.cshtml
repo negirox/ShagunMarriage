@@ -1,0 +1,67 @@
+﻿@model ShagunMarriage.Models.ViewModels.MatrimonialUserViewModel
+
+@{
+    ViewData["Title"] = "User Home";
+}
+
+@if (Model == null)
+{
+    <div class="alert alert-warning mt-4 text-center shadow-sm rounded-3">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        No profile found. <a asp-action="CompleteProfile" class="btn btn-sm btn-primary ms-2">Complete your profile</a>
+    </div>
+}
+else
+{
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card shadow-lg profile-card" style="max-width: 600px; width: 100%;">
+            <div class="card-header bg-primary text-white text-center rounded-top">
+                <h3 class="mb-0">@Model.FullName's Matrimonial Profile</h3>
+            </div>
+            <div class="card-body p-4">
+                <div class="d-flex flex-column align-items-center mb-4">
+@*                     <img src="@(Model.UserImagePath ?? "/images/profile-placeholder.png")"
+                         alt="Profile Image"
+                         class="rounded-circle shadow"
+                         style="width: 120px; height: 120px; object-fit: cover; border: 4px solid #fff; background: #f0f0f0;" />
+                 *@</div>
+                <div class="row mb-2">
+                    <div class="col-6 mb-2"><strong>Gender:</strong> @Model.Gender</div>
+                    <div class="col-6 mb-2"><strong>Date of Birth:</strong> @Model.DateOfBirth.ToShortDateString()</div>
+                    <div class="col-6 mb-2"><strong>Religion:</strong> @Model.Religion</div>
+                    <div class="col-6 mb-2"><strong>Caste:</strong> @Model.Caste</div>
+                    <div class="col-6 mb-2"><strong>Education:</strong> @Model.Education</div>
+                    <div class="col-6 mb-2"><strong>Occupation:</strong> @Model.Occupation</div>
+                    <div class="col-6 mb-2"><strong>Annual Income:</strong> <span class="text-success">@Model.AnnualIncome.ToString("C")</span></div>
+                    <div class="col-6 mb-2"><strong>Country:</strong> @Model.Country</div>
+                    <div class="col-6 mb-2"><strong>State:</strong> @Model.State</div>
+                    <div class="col-6 mb-2"><strong>City:</strong> @Model.City</div>
+                    <div class="col-6 mb-2"><strong>Height:</strong> @Model.HeightInCm cm</div>
+                </div>
+                <div class="mb-3">
+                    <strong>About Me:</strong>
+                    <div class="bg-light rounded p-2 mt-1">@Model.AboutMe</div>
+                </div>
+                <hr />
+                <div>
+                    <h5 class="text-primary">Matchmaking Preferences</h5>
+                    <div class="row">
+                        <div class="col-6 mb-2"><strong>Preferred Religion:</strong> @Model.PreferredReligion</div>
+                        <div class="col-6 mb-2"><strong>Preferred Caste:</strong> @Model.PreferredCaste</div>
+                        <div class="col-6 mb-2"><strong>Preferred Age:</strong> @Model.PreferredAgeFrom - @Model.PreferredAgeTo</div>
+                        <div class="col-6 mb-2"><strong>Preferred Height:</strong> @Model.PreferredHeightFrom - @Model.PreferredHeightTo cm</div>
+                    </div>
+                    <div class="mt-2">
+                        <strong>Additional Preferences:</strong>
+                        <div class="bg-light rounded p-2 mt-1">@Model.AdditionalPreferences</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <!-- Optionally include Bootstrap Icons CDN for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+}
