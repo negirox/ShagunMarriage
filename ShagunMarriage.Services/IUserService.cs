@@ -9,5 +9,6 @@ namespace ShagunMarriage.Services
         Task<UserViewModel?> AuthenticateUserAsync(LoginViewModel loginViewModel);
         Task<UserViewModel?> GetUserInfo(UserViewModel user);
         Task<MatrimonialUserViewModel?> GetUserProfileInfo(string email);
+        Task<bool> AddOrUpdate(MatrimonialUserViewModel userProfile,string email);
     }
 }

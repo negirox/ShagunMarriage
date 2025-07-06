@@ -61,8 +61,6 @@ namespace ShagunMarriage.Controllers
                     // Redirect to user home
                     return RedirectToAction("UserHome", "Home");
                 }
-                // Redirect to Home/Index
-                return RedirectToAction("Index", "Home");
             }
 
             ModelState.AddModelError("", "Invalid login attempt.");

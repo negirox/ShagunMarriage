@@ -10,6 +10,8 @@ namespace ShagunMarriage.Services
         {
             CreateMap<UserModel, UserViewModel>();
             CreateMap<UserViewModel, UserModel>();
+            CreateMap<MatrimonialUserModel, MatrimonialUserViewModel>();
+            CreateMap<MatrimonialUserViewModel, MatrimonialUserModel>();
         }
     }
 }
